@@ -11,7 +11,7 @@ type Servicio = {
   descripcion?: string;
   incluye?: string[];
   precio_desde?: number;
-  imagen?: any;
+  imagen?: unknown;
 };
 
 export default async function EventosPage() {

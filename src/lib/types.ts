@@ -5,10 +5,11 @@ export type Producto = {
     categoria: "Tortas" | "Tartas" | "Alfajores" | "Petit Fours" | "Mesas Dulces" | "Temporada";
     precio: number;
     descripcion?: string;
-    imagen?: any;    // Sanity image object
+    imagen?: unknown;      // antes: any
     etiquetas?: string[];
     porciones?: string;
     alergenos?: string;
   };
+  
   
   
