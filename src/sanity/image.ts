@@ -3,9 +3,14 @@ import { sanityClient } from "./config";
 
 const builder = imageUrlBuilder(sanityClient);
 
-// Evitamos 'any' usando 'unknown'
-export function urlFor(source: unknown) {
-  // El builder acepta múltiples formas; hacemos un cast seguro
-  return builder.image(source as Parameters<typeof builder.image>[0]);
+// Tipamos una fuente de imagen válida para Sanity (sin usar `any`)
+type SanityImageSource =
+  | string
+  | { asset: { _ref: string } }
+  | { _type: string; [key: string]: unknown };
+
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source);
 }
+
 
